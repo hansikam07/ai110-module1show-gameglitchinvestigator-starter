@@ -30,18 +30,25 @@ Document at least 3 bugs you found. Add rows as needed.
 - Which AI tools did you use on this project (for example: ChatGPT, Gemini, Copilot)?
 I used Claude Code, Claude
 - Give one example of an AI suggestion that was correct (including what the AI suggested and how you verified the result).
-
+An AI suggestion was that the guess counter started at the wrong number of 1 terefore the number of guesses a user was allowed was ending earlier that expected. AI suggested a change to initial guess = 0; and I verified that thsi was right and made the change, now a user can make 8 guesses. Another AI suggestion was to remove the try catch block in the check_guess function because it was reading in the number input as a string skewing teh hints. Calude suggested removing it, I didn't quite understand how teh try catch would work, however i learned through claude that it was still wrong for reading in a string and would skew hints so I verified and removed it. 
 
 - Give one example of an AI suggestion that was incorrect or misleading (including what the AI suggested and how you verified the result).
+The AI suggested that "since the new check_guess no longer has the TypeError fallback, the string-conversion in the submit block would now crash on even attempts… I have to remove it for the app to work." This was incorrect as I had previosuly just changed the string conversion so I was wondering hwo it still was crashing so I double checked calude with all the changes made and claudecode caught this error.
 
 ---
 
 ## 3. Debugging and testing your fixes
 
 - How did you decide whether a bug was really fixed?
+
+I had the test cases specifically checking for teh bug we caught and after ran teh gaem and played it my slef to check that teh bug was actually fixed. 
+
 - Describe at least one test you ran (manual or using pytest)  
   and what it showed you about your code.
+  I went and played the game, after fixing the string/wrong hinst error. I saw the secret and made dilebrate even and odd guesses to make sure that the lower/higher hint was based on number camprison and not string. The correct hints given by the game regardless of even or odd inputs revelead that the bug was fixed. 
+
 - Did AI help you design or understand any tests? How?
+Yes I asked AI to check that the game was giving users te right amount fo guess and it explained that the inital guess count was off and designed a test and explained it woudl stimulate teh guess loop on teh game and cheked if it got the right attempt limit number we had set. 
 
 ---
 
