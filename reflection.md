@@ -7,6 +7,11 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
 - What did the game look like the first time you ran it?
 - List at least two concrete bugs you noticed at the start  
   (for example: "the hints were backwards").
+The hints are both backwards anbd the hint is not being updated with changing guesses by the user. I expected teh hint to update with the guess and actually point me in teh right direction. the new game button doesn't refresh teh game and so you can't play a new game. The game says out of attempts and reveals the answer when there is still one attempt left, so only at 7 instead of 8. The socrinmg function is also off and generating inaccrurate reuslts. 
+-hints
+-new game
+-guess on odd vs even attempts:on even guesses the secret is passed as a string so number comparison is off
+
 
 **Bug Reproduction Log**
 
@@ -14,16 +19,18 @@ Document at least 3 bugs you found. Add rows as needed.
 
 | Input | Expected Behavior | Actual Behavior | Console Output / Error |
 |-------|-------------------|-----------------|------------------------|
-| | | | |
-| | | | |
-| | | | |
+| 21    | Go Lower          |   Go Higher     |   wrong hint 
+| 40    | Go Lower          |   Go HIGHER!    |   wrong hint
+| 1     | Go Higher         |    Go LOWER!    |   wrong hint
 
 ---
 
 ## 2. How did you use AI as a teammate?
 
 - Which AI tools did you use on this project (for example: ChatGPT, Gemini, Copilot)?
+I used Claude Code
 - Give one example of an AI suggestion that was correct (including what the AI suggested and how you verified the result).
+
 - Give one example of an AI suggestion that was incorrect or misleading (including what the AI suggested and how you verified the result).
 
 ---

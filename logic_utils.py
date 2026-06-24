@@ -17,8 +17,15 @@ def check_guess(guess, secret):
     Compare guess to secret and return (outcome, message).
 
     outcome examples: "Win", "Too High", "Too Low"
+
+    Both arguments are expected to be ints. A guess larger than the secret
+    is "Too High", so the hint tells the player to go LOWER.
     """
-    raise NotImplementedError("Refactor this function from app.py into logic_utils.py")
+    if guess == secret:
+        return "Win", "🎉 Correct!"
+    if guess > secret:
+        return "Too High", "📈 Go LOWER!"
+    return "Too Low", "📉 Go HIGHER!"
 
 
 def update_score(current_score: int, outcome: str, attempt_number: int):
