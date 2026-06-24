@@ -55,6 +55,7 @@ Yes I asked AI to check that the game was giving users te right amount fo guess 
 ## 4. What did you learn about Streamlit and state?
 
 - How would you explain Streamlit "reruns" and session state to a friend who has never used Streamlit?
+Streamlit 'reruns' teh code each time a button is clciked or anything is typed in, which rested the values restarts teh entire script from top to bottom. Session state help hold previosu information liek teh secret number, the score and number of attempts. Basically session state keeps track of you progress/work in the game. 
 
 ---
 
@@ -62,5 +63,10 @@ Yes I asked AI to check that the game was giving users te right amount fo guess 
 
 - What is one habit or strategy from this project that you want to reuse in future labs or projects?
   - This could be a testing habit, a prompting strategy, or a way you used Git.
+
+  I can gues claude code to look at the bugs I found and prompt it to refactor the code line by line so I can verify the solutions. A prompting strategy is asking for AI to both fix and write a test to catch the isse to make sure the bug was actually fixed. 
+
 - What is one thing you would do differently next time you work with AI on a coding task?
+I wouls be more detailed and specific about my asks as i had to add in more details to questions after it finsihed running tasks, which needed more tokens and was redundant. 
 - In one or two sentences, describe how this project changed the way you think about AI generated code.
+I think instead of AI generated code being a work free, or autonomous task, I think peopel can work with AI generated code to fix issues faster and geenrate more code. 

@@ -26,18 +26,21 @@ It wrote the code, ran away, and now the game is unplayable.
 ## 📝 Document Your Experience
 
 - [ ] Describe the game's purpose.
+The purpose of the game is to show teh various type of bugs that can occur in any programming project and how to approach these issues using AI. Game helped us use ClaudeCode to understand error, find solution and verify and test the code after solutions were implememted.
 - [ ] Detail which bugs you found.
+I found a bug with wrong hints(backwards), wrong number of guess attempts, miscalcution of score and issue starting a new game.
 - [ ] Explain what fixes you applied.
+i applied fixes so the game will produce the right hints, and so teh game allowed teh correct 8 number of guesses for the user. 
 
 ## 📸 Demo Walkthrough
 
 Describe your fixed game in numbered steps so a reader can follow along without watching a video:
 
-1. <!-- Describe this step -->
-2. <!-- Describe this step -->
-3. <!-- Describe this step -->
-4. <!-- Describe this step -->
-5. <!-- Add more steps as needed -->
+1. Game starts with 8 guesses and an option to see a hint, hints are on
+2. User starts by enetering 50
+3. Game return a hint of "📉 Go HIGHER!"
+4. User enters 80 -> a hint of "📉 Go HIGHER!"
+5. User enters 90 -> game returns "Win", "🎉 Correct!"
 
 **Screenshot** *(optional)*: <!-- Insert a screenshot of your fixed, winning game here -->
 
