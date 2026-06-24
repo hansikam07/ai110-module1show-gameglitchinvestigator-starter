@@ -1,4 +1,4 @@
-from logic_utils import check_guess
+from logic_utils import check_guess, is_out_of_attempts, INITIAL_ATTEMPTS
 
 # check_guess returns a tuple: (outcome, message)
 
@@ -34,3 +34,23 @@ def test_hint_direction_matches_comparison():
     outcome, message = check_guess(30, 50)
     assert outcome == "Too Low"
     assert "HIGHER" in message.upper()
+
+
+# --- Regression test for the off-by-one attempt-limit bug ---
+# The bug: attempts started at 1 instead of 0, so the game ended one guess
+# early (e.g. 7 guesses on Normal instead of 8). This simulates the game's
+# submit loop and asserts the player gets exactly `attempt_limit` guesses.
+
+def test_player_gets_full_attempt_limit():
+    attempt_limit = 8
+    attempts = INITIAL_ATTEMPTS   # must be 0; starting at 1 loses a guess
+    guesses_made = 0
+
+    # Mirror app.py: each submit increments attempts, then checks for game over.
+    while True:
+        attempts += 1
+        guesses_made += 1
+        if is_out_of_attempts(attempts, attempt_limit):
+            break
+
+    assert guesses_made == attempt_limit

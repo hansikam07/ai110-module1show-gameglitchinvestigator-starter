@@ -1,7 +1,7 @@
 import random
 import streamlit as st
 
-from logic_utils import check_guess
+from logic_utils import check_guess, is_out_of_attempts, INITIAL_ATTEMPTS
 
 
 def get_range_for_difficulty(difficulty: str):
@@ -77,7 +77,7 @@ if "secret" not in st.session_state:
     st.session_state.secret = random.randint(low, high)
 
 if "attempts" not in st.session_state:
-    st.session_state.attempts = 1
+    st.session_state.attempts = INITIAL_ATTEMPTS
 
 if "score" not in st.session_state:
     st.session_state.score = 0
@@ -116,7 +116,7 @@ with col3:
     show_hint = st.checkbox("Show hint", value=True)
 
 if new_game:
-    st.session_state.attempts = 0
+    st.session_state.attempts = INITIAL_ATTEMPTS
     st.session_state.secret = random.randint(1, 100)
     st.success("New game started.")
     st.rerun()
@@ -139,7 +139,7 @@ if submit:
     else:
         st.session_state.history.append(guess_int)
 
-        #FIXME - made sure secret oisn't passed as a string 
+        #FIXME - made sure secret oisn't passed as a string, worked with AI to fic input
 
         secret = st.session_state.secret
 
@@ -162,7 +162,7 @@ if submit:
                 f"Final score: {st.session_state.score}"
             )
         else:
-            if st.session_state.attempts >= attempt_limit:
+            if is_out_of_attempts(st.session_state.attempts, attempt_limit):
                 st.session_state.status = "lost"
                 st.error(
                     f"Out of attempts! "
